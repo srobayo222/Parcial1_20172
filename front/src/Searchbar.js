@@ -19,7 +19,7 @@ class Searchbar extends Component {
 					placeholder="Username" 
 					ref = {(input) => this.input = input}
 					defaultValue = {this.props.user}
-					onKeyPress = {this.onKeyPress.bind()}/>
+					onKeyPress = {this.onKeyPress.bind(this)}/>
 			</div>
 		);
 	}
@@ -27,5 +27,6 @@ class Searchbar extends Component {
 
 Searchbar.propTypes = {
 	onSearch: PropTypes.object.isRequired
+}
 
 export default Searchbar;
