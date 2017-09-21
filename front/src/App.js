@@ -5,7 +5,7 @@ import Searchbar from "./Searchbar.js"
 export default class App extends Component {
 	componentDidMount(){
 		fetch("/getFollowers/john-guerra")
-		.this((res) => res.json())
+		.then((res) => res.json())
 		.then((json) => console.log(json));
 			
 	}
