@@ -15,7 +15,7 @@ class FollowerList extends Component {
 
 	render() {
 		return (
-			<div className="followersList">
+			<div className="followersList row">
 				{this.renderFollowers()}
 			</div>
 		);
