@@ -2,10 +2,6 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 
 class Searchbar extends Component {
-	constructor(props){
-		super(props);
-	}
-
 	onKeyPress(evt) {
 		if(evt.key ==="Enter") {
 			this.props.onSearch(evt.target.value);

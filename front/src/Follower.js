@@ -1,19 +1,23 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 
-class Followers extends Component {
+class Follower extends Component {
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
 		return (
-			<div className="followers">
-				<div className="name">{this.props.follower.id}</div>
-				<div class="text">{this.props.follower.username}</div>
+			<div>
+				<div className="user">{this.props.follower.login}</div>
+				<div className="url"><a href={this.props.follower.url}>Repository</a></div>
 			</div>
-		);
+			);
 	}
 }
 
-Followers.propTypes = {
-	username: PropTypes.object.isRequired
+Follower.propTypes = {
+	follower: PropTypes.object.isRequired
 };
 
-export default <Followers></Followers>;
+export default Follower;

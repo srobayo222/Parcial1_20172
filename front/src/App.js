@@ -1,35 +1,42 @@
 import React, {Component} from "react";
-import Followers from "./Follower.js"
+import FollowerList from "./FollowerList.js"
 import Searchbar from "./Searchbar.js"
 
 export default class App extends Component {
 	componentDidMount(){
-		fetch("/getFollowers/john-guerra")
-		.then((res) => res.json())
-		.then((json) => console.log(json));
-			
+		fetch("/getFollowers/"+this.state.username)
+		.then(res => res.json())
+      	.then(follows => {
+      		let follow= follows.data.map((usuario, index) => {
+      			return {
+      				id: `usuario_${index+1}`,
+      				login: usuario.login,
+      				url: usuario.html_url
+      			}
+      		});
+      		this.setState({followers: follow});
+      	});
 	}
+
 	constructor(props){
 		super(props);
 
 		this.state = {
-			follower: []
+			followers: [],
+			username: "john-guerra"
 		}
 	}
 
-	renderFollowers() {
-		return this.state.follower.map((t) => {
-			return (<Followers follower ={t}/>);
-		});
-	}
-
 	render() {
+		console.log(this.state);
 		return(
-			<div className="row">
-				<div className="col-md-8">
-					<h1>GitHub Followers! </h1>
-					<Searchbar />
-					{this.renderFollowers()}
+			<div>
+				<h1>GitHub Followers! </h1>
+				<Searchbar />
+				<div className="row">
+					<div className="col-8">
+						<FollowerList followers={this.state.followers} />
+					</div>
 				</div>
 			</div>
 		);

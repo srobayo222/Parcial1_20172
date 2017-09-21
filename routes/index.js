@@ -11,6 +11,7 @@ console.log(req.params);
 	   username: req.params.user
 	}, function(err, data) {
 	  res.json(data);
+	  console.log(data.data);	
 	});
 });
 
