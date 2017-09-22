@@ -21,14 +21,36 @@ export default class App extends Component {
       	});
 	}
 
+	componentDidUpdate(){
+		fetch("/getFollowers/"+this.state.username)
+		.then(res => res.json())
+      	.then(follows => {
+      		let follow= follows.data.map((usuario, index) => {
+      			return {
+      				id: `usuario_${index+1}`,
+      				login: usuario.login,
+      				url: usuario.html_url,
+      				img: usuario.avatar_url
+      			}
+      		});
+      		this.setState({followers: follow});
+      	});
+	}
+
 	constructor(props){
 		super(props);
 
 		this.state = {
 			followers: [],
-			username: "john-guerra"
+			username: "srobayo222"
 		}
 	}
+
+	search(text) {
+			this.setState({
+			username: text
+		});
+	} 
 
 	render() {
 		console.log(this.state);
@@ -36,7 +58,7 @@ export default class App extends Component {
 			<div>
 				<header>
 					<h1>GitHub Followers! </h1>
-					<label>Please put a GitHub Username: </label><Searchbar />
+					<label>Please put a GitHub Username: </label><Searchbar search={this.search.bind(this)}/>
 				</header>
 				<h2>{this.state.username} Followers</h2>
 				<div className="row">
