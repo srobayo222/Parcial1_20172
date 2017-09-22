@@ -10,6 +10,7 @@ class Follower extends Component {
 				<img src={this.props.follower.img} alt={this.props.follower.login + " profile pic"} />
 				<div className="user">{this.props.follower.login}</div>
 				<div className="url"><a href={this.props.follower.url} target="_blank">Repository</a></div>
+				<buttton src="#">Follow</button>
 			</div>
 		);
 	}
