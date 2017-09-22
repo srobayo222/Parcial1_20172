@@ -42,18 +42,19 @@ export default class App extends Component {
 
 		this.state = {
 			followers: [],
-			username: ""
+			username: "",
+			list:[]
 		}
 	}
 
 	search(text) {
 			this.setState({
-			username: text
+			username: text,
+			list: this.state.list.concat([text+"->"])
 		});
 	} 
 
 	render() {
-		console.log(this.state);
 		return(
 			<div>
 				<header>
@@ -66,6 +67,7 @@ export default class App extends Component {
 						<FollowerList followers={this.state.followers} />
 					</div>
 				</div>
+				<div>{this.state.list}</div>
 			</div>
 		);
 	}
