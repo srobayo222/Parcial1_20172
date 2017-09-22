@@ -42,7 +42,7 @@ export default class App extends Component {
 
 		this.state = {
 			followers: [],
-			username: "srobayo222"
+			username: ""
 		}
 	}
 
