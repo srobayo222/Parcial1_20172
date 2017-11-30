@@ -1,5 +1,9 @@
 # Parcial1_20172
 
+Este proyecto permite ver los seguidores de github de una cuenta. Si se ingresa el ususaio en la barra de busqueda se hra display de los seguidores dle mismo. Adicionalmente al realizar una nueva busqueda se actualizaran los seguidores. A medida que se buscan los seguidores, se puede visualizar el historial de usuarios buscados. 
+
+Adicionalmente se puede ver la foto de los usuarios.
+
 En la raiz abrir la consola y ejecutar:
 
   1- npm install
